@@ -1,0 +1,23 @@
+name: Hello World CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Print a greeting
+        run: echo "Hello from GitHub Actions! The push worked."
+
+      - name: Show branch name
+        run: echo "You just pushed to branch ${{ github.ref_name }}"
+
+      - name: Show who triggered it
+        run: echo "Triggered by ${{ github.actor }}"
